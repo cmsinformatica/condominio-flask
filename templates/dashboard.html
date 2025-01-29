@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Pagamentos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Condomínio - Pagamentos</h1>
+
+    <a href="{{ url_for('criar_pagamento') }}" class="button">Criar Novo Pagamento</a>
+    <a href="{{ url_for('relatorio') }}" class="button">Baixar Relatório</a>
+
+    <hr>
+
+    <h2>Pagamentos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Apartamento</th>
+                <th>Mês</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pagamento in pagamentos %}
+            <tr class="{{ 'pago' if pagamento[3] == 'Pago' else 'pendente' }}">
+                <td>{{ pagamento[1] }}</td>
+                <td>{{ pagamento[2] }}</td>
+                <td>{{ pagamento[3] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>

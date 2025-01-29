@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Pagamento</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Criar Novo Pagamento</h1>
+    <form method="POST">
+        <label for="apartamento">Apartamento:</label>
+        <input type="text" id="apartamento" name="apartamento" required>
+        <br>
+
+        <label for="mes">Mês:</label>
+        <input type="text" id="mes" name="mes" required>
+        <br>
+
+        <label for="status">Status:</label>
+        <select id="status" name="status" required>
+            <option value="Pago">Pago</option>
+            <option value="Pendente">Pendente</option>
+        </select>
+        <br>
+
+        <input type="submit" value="Criar Pagamento">
+    </form>
+
+    <a href="{{ url_for('dashboard') }}">Voltar</a>
+</body>
+
+</html>
